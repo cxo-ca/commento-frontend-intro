@@ -6,7 +6,7 @@
 ## 과제 내용
 - GitHub Repository 생성
 - 간단한 자기소개 웹 페이지 구현
-- 개발 환경 및 버전 관리 도구 사용 경험
+- 버전 관리 및 개발 환경 구성 경험
 
 ## 소개
 - 이름: 정호영
@@ -21,4 +21,5 @@
 1. Repository를 clone 하거나 파일을 다운로드합니다.
 2. `index.html` 파일을 브라우저에서 실행합니다.
 
-(선택) GitHub Pages를 통해 웹 페이지로도 확인할 수 있습니다.
+## 배포
+🔗 GitHub Pages: https://cxo-ca.github.io/commento-frontend-intro/
