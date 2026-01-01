@@ -1,1 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task 2 - Vending UI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">VM</div>
+        <div class="brand__text">
+          <h1 class="brand__title">Campus Vending</h1>
+          <p class="brand__sub">Task 2 · 레이아웃(화면) 구성만 · 기능 구현 없음</p>
+        </div>
+      </div>
 
+      <div class="filters" aria-label="Filter buttons (UI only)">
+        <button class="chip" type="button">전체</button>
+        <button class="chip" type="button">인기</button>
+        <button class="chip" type="button">저당</button>
+        <button class="chip" type="button">카페인</button>
+      </div>
+    </header>
+
+    <section class="layout">
+      <!-- Left: Products -->
+      <section class="panel panel--products" aria-label="Products">
+        <div class="panel__head">
+          <h2 class="panel__title">상품</h2>
+          <p class="panel__desc">그리드 레이아웃으로 구성 (UI only)</p>
+        </div>
+
+        <div class="grid" role="list">
+          <!-- Card 1 -->
+          <article class="card" role="listitem">
+            <div class="card__img" aria-hidden="true"></div>
+            <div class="card__body">
+              <div class="card__top">
+                <h3 class="card__name">콜라</h3>
+                <span class="badge badge--hot">HOT</span>
+              </div>
+              <p class="card__meta">500ml · 탄산</p>
+              <div class="card__bottom">
+                <span class="price">₩1,500</span>
+                <span class="stock stock--ok">재고 12</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card" role="listitem">
+            <div class="card__img" aria-hidden="true"></div>
+            <div class="card__body">
+              <div class="card__top">
+                <h3 class="card__name">사이다</h3>
+                <span class="badge badge--new">NEW</span>
+              </div>
+              <p class="card__meta">500ml · 탄산</p>
+              <div class="card__bottom">
+                <span class="price">₩1,500</span>
+                <span class="stock stock--low">재고 2</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card" role="listitem">
+            <div class="card__img" aria-hidden="true"></div>
+            <div class="card__body">
+              <div class="card__top">
+                <h3 class="card__name">아메리카노</h3>
+                <span class="badge badge--caff">CAFF</span>
+              </div>
+              <p class="card__meta">250ml · 커피</p>
+              <div class="card__bottom">
+                <span class="price">₩2,000</span>
+                <span class="stock stock--ok">재고 8</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card" role="listitem">
+            <div class="card__img" aria-hidden="true"></div>
+            <div class="card__body">
+              <div class="card__top">
+                <h3 class="card__name">생수</h3>
+                <span class="badge">BASIC</span>
+              </div>
+              <p class="card__meta">500ml · 무가당</p>
+              <div class="card__bottom">
+                <span class="price">₩1,000</span>
+                <span class="stock stock--ok">재고 20</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="card" role="listitem">
+            <div class="card__img" aria-hidden="true"></div>
+            <div class="card__body">
+              <div class="card__top">
+                <h3 class="card__name">이온음료</h3>
+                <span class="badge badge--fit">FIT</span>
+              </div>
+              <p class="card__meta">500ml · 스포츠</p>
+              <div class="card__bottom">
+                <span class="price">₩1,800</span>
+                <span class="stock stock--ok">재고 6</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="card" role="listitem">
+            <div class="card__img" aria-hidden="true"></div>
+            <div class="card__body">
+              <div class="card__top">
+                <h3 class="card__name">저당 라떼</h3>
+                <span class="badge badge--low">LOW</span>
+              </div>
+              <p class="card__meta">250ml · 저당</p>
+              <div class="card__bottom">
+                <span class="price">₩2,200</span>
+                <span class="stock stock--low">재고 1</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Right: Status / Dashboard -->
+      <aside class="panel panel--status" aria-label="Status panel">
+        <div class="panel__head">
+          <h2 class="panel__title">상태 패널</h2>
+          <p class="panel__desc">지표/알림/선택정보 (표시만)</p>
+        </div>
+
+        <section class="metrics" aria-label="Metrics">
+          <div class="metric">
+            <p class="metric__label">오늘 판매(예시)</p>
+            <p class="metric__value">128</p>
+          </div>
+          <div class="metric">
+            <p class="metric__label">평균 단가(예시)</p>
+            <p class="metric__value">₩1,720</p>
+          </div>
+          <div class="metric">
+            <p class="metric__label">재고 경고</p>
+            <p class="metric__value">3</p>
+          </div>
+        </section>
+
+        <section class="box" aria-label="Top items">
+          <h3 class="box__title">인기 TOP 3</h3>
+          <ol class="list">
+            <li class="list__item">
+              <span class="list__name">콜라</span>
+              <span class="list__hint">점유 24%</span>
+            </li>
+            <li class="list__item">
+              <span class="list__name">아메리카노</span>
+              <span class="list__hint">점유 18%</span>
+            </li>
+            <li class="list__item">
+              <span class="list__name">생수</span>
+              <span class="list__hint">점유 15%</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="box" aria-label="Alerts">
+          <h3 class="box__title">알림</h3>
+          <ul class="alerts">
+            <li class="alerts__item">
+              <span class="dot dot--warn" aria-hidden="true"></span>
+              <span>사이다 재고 부족</span>
+            </li>
+            <li class="alerts__item">
+              <span class="dot dot--warn" aria-hidden="true"></span>
+              <span>저당 라떼 재고 부족</span>
+            </li>
+            <li class="alerts__item">
+              <span class="dot dot--ok" aria-hidden="true"></span>
+              <span>결제 모듈 정상</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="box" aria-label="Payment area UI only">
+          <h3 class="box__title">결제 영역(표시만)</h3>
+
+          <div class="row">
+            <span class="label">투입 금액</span>
+            <span class="value">₩0</span>
+          </div>
+
+          <div class="row">
+            <span class="label">선택 상품</span>
+            <span class="value value--muted">없음</span>
+          </div>
+
+          <div class="actions" aria-label="Action buttons (UI only)">
+            <button class="btn btn--ghost" type="button">반환</button>
+            <button class="btn btn--primary" type="button">구매</button>
+          </div>
+
+          <p class="hint">※ 버튼 클릭 이벤트 없음 (레이아웃 구성 과제)</p>
+        </section>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <p>제출물: GitHub에 업로드된 화면 구성(HTML/CSS) 결과물</p>
+    </footer>
+  </main>
+</body>
+</html>
