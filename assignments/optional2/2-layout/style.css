@@ -1,1 +1,98 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
 
+.header,
+.nav,
+.content,
+.sidebar,
+.footer {
+  border: 1px solid #333;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.header { background: #f0f0f0; }
+.nav { background: #fafafa; }
+.footer { background: #f0f0f0; }
+
+/* 공통 컨테이너 */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===================== */
+/* Float Layout */
+.float-left {
+  float: left;
+}
+
+.content.float-left {
+  width: 70%;
+}
+
+.sidebar.float-left {
+  width: 28%;
+  margin-left: 2%;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ===================== */
+/* Flex Layout */
+.container.flex {
+  display: flex;
+  gap: 12px;
+}
+
+.container.flex .content {
+  flex: 1;
+}
+
+.container.flex .sidebar {
+  width: 240px;
+}
+
+/* ===================== */
+/* Grid Layout */
+.grid-page {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  grid-template-areas:
+    'header header'
+    'nav nav'
+    'content sidebar'
+    'footer footer';
+  gap: 12px;
+}
+
+.grid-page .header { grid-area: header; }
+.grid-page .nav { grid-area: nav; }
+.grid-page .content { grid-area: content; }
+.grid-page .sidebar { grid-area: sidebar; }
+.grid-page .footer { grid-area: footer; }
+
+/* 반응형 */
+@media (max-width: 720px) {
+  .container.flex {
+    flex-direction: column;
+  }
+
+  .grid-page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'header'
+      'nav'
+      'content'
+      'sidebar'
+      'footer';
+  }
+}
