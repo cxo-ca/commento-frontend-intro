@@ -1,1 +1,4 @@
-
+p { color: black; }
+#title { border-bottom: 2px solid black; }
+.highlight { background: yellow; }
+input[type='text'] { border: 1px solid black; }
