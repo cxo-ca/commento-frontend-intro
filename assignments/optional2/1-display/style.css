@@ -1,1 +1,4 @@
-
+.box { border: 2px solid #333; padding: 10px; margin: 6px; }
+.block { display: block; width: 200px; }
+.inline { display: inline; }
+.ib { display: inline-block; width: 200px; }
