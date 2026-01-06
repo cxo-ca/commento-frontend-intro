@@ -20,10 +20,10 @@
 - GitHub Pages 설정을 통한 결과물 배포
 
 ### 파일 구성
-index.html
-style.css
-main.js
-README.md
+index.html  
+style.css  
+main.js  
+README.md  
 
 
 ### 결과물
@@ -50,10 +50,10 @@ README.md
 - 실제 서비스 화면을 가정한 구조 설계 (기능 없음)
 
 ### 폴더 구조
-assignments/
-└─ task2-vending/
-├─ index.html
-└─ style.css
+assignments/  
+└─ task2-vending/  
+├─ index.html  
+└─ style.css  
 
 
 ### 결과물 (실행 화면)
@@ -75,13 +75,13 @@ assignments/
 5. 자기소개 HTML 페이지 작성 (레이아웃 명시)
 
 ### 폴더 구조
-assignments/
-└─ optional2/
-├─ 1-display/
-├─ 2-layout/
-├─ 3-box-model/
-├─ 4-selectors/
-└─ 5-intro/
+assignments/  
+└─ optional2/  
+├─ 1-display/  
+├─ 2-layout/  
+├─ 3-box-model/  
+├─ 4-selectors/  
+└─ 5-intro/  
 
 
 ### 코드 모음 (선택 과제)
