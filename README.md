@@ -1,5 +1,5 @@
 # Commento Frontend Bootcamp  
-– Assignment Repository
+# – Assignment Repository
 
 본 저장소는 **Commento 프론트엔드 직무 부트캠프** 과제를 수행하며 작성한 결과물을 정리한 레포지토리입니다.  
 1주차(개발 환경 구축)와 2주차(웹 화면 레이아웃 구성) 과제를 중심으로,  
