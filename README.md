@@ -27,7 +27,7 @@ https://cxo-ca.github.io/commento-frontend-intro/assignments/task2-vending/
 ---
 
 ## 2주차 선택 과제 (optional2)
-HTML/CSS 기초 개념을 문서 및 예제 코드로 정리하였습니다.
+HTML/CSS 기초 개념을 문서 및 예제 코드로 정리
 
 - display 속성
 - 레이아웃 방식 (Float / Flex / Grid)
