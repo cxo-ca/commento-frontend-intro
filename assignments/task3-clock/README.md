@@ -12,5 +12,5 @@
 - main.js
 
 ## 실행
-- GitHub Pages에서 폴더 경로로 접속
+- GitHub Pages에서 폴더 경로로 접속  
 https://cxo-ca.github.io/commento-frontend-intro/assignments/task3-clock/
