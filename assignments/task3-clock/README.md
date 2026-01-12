@@ -13,4 +13,4 @@
 
 ## 실행
 - GitHub Pages에서 폴더 경로로 접속
-  - 예: /assignments/task3-clock/
+https://cxo-ca.github.io/commento-frontend-intro/assignments/task3-clock/
