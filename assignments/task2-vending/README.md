@@ -61,10 +61,8 @@
 - JavaScript는 사용하지 않았으며, HTML/CSS만으로 작성되었습니다.  
 
 📁 파일 구성
-pgsql
-코드 복사
-task2-vending/
-├─ index.html
+task2-vending/  
+├─ index.html  
 └─ style.css  
 
 🔗 결과물 링크
