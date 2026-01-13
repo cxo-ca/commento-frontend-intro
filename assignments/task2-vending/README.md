@@ -32,7 +32,7 @@
 - 상품 목록은 의미적으로 적절한 `<ul>/<li>` 구조 사용
 - 접근성을 고려하여 `role="list"`, `role="listitem"` 적용
 
-```html
+```
 <div class="vm-page">
   <header class="vm-topbar">...</header>
   <main class="vm-layout">
@@ -41,7 +41,7 @@
   </main>
   <footer class="vm-footer">...</footer>
 </div>
-html'''
+'''
 
 🎨 CSS 설계 포인트
 - :root에 CSS 변수를 정의하여 색상 및 테마 일관성 유지
