@@ -61,28 +61,9 @@
 - JavaScript는 사용하지 않았으며, **HTML/CSS만으로 작성되었습니다.**
 
 ## 📁 파일 구성
-## 🎨 CSS 설계 포인트
-- `:root`에 CSS 변수를 정의하여 색상 및 테마 일관성 유지
-- Grid 레이아웃을 활용한 상품 카드 배치
-- 반응형을 고려한 기본 구조 설계
-- BEM(Block Element Modifier) 규칙을 기반으로 클래스 구성
-- 전역 클래스 충돌 방지를 위해 `vm-` prefix 사용
-
-## ♿ 접근성 고려 사항
-- 시맨틱 태그(`<header>`, `<main>`, `<section>`, `<aside>`, `<footer>`) 활용
-- 상품 리스트에 `<ul>/<li>` 구조 적용
-- `aria-label`, `role` 속성 명시로 스크린 리더 사용성 고려
-
-## ⚠️ 제한 사항
-- 본 과제는 **화면(UI) 구성 과제**로,  
-  버튼 클릭, 구매, 필터링 등 **모든 기능은 구현하지 않았습니다.**
-- JavaScript는 사용하지 않았으며, **HTML/CSS만으로 작성되었습니다.**
-
-## 📁 파일 구성
 task2-vending/  
 ├─ index.html  
 └─ style.css
-
 
 ## 🔗 결과물 링크
 - GitHub Pages  
