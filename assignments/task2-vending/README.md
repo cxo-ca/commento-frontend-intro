@@ -41,7 +41,7 @@
   </main>
   <footer class="vm-footer">...</footer>
 </div>
-'''html
+```html
 
 🎨 CSS 설계 포인트
 - :root에 CSS 변수를 정의하여 색상 및 테마 일관성 유지
