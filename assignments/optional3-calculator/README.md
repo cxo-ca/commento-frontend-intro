@@ -56,11 +56,11 @@ JavaScript를 사용해 **이벤트 처리 및 계산 로직**을 구현했습�
 ---
 
 ## 디렉터리 구조
-optional3-calculator/
-├── index.html
-├── style.css
-├── main.js
-└── README.md
+optional3-calculator/  
+├── index.html  
+├── style.css  
+├── main.js  
+└── README.md  
 
 ---
 
