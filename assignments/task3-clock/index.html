@@ -22,13 +22,13 @@
           <span class='clk-battery__label'>Battery</span>
           <span id='batteryText' class='clk-battery__value'>100%</span>
         </div>
-        <div class='clk-battery__bar' role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow='100'>
+        <div id='batteryBar' class='clk-battery__bar' role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow='100'>
           <div id='batteryFill' class='clk-battery__fill'></div>
         </div>
       </div>
     </header>
 
-    <main class='clk-layout'>
+    <main class='clk-layout' aria-label='clock layout'>
       <!-- Clock Screen -->
       <section class='clk-screen' aria-label='clock screen'>
         <div id='screen' class='clk-screen__panel'>
@@ -50,20 +50,23 @@
           <p class='clk-panel__desc'>시/분/초 입력 후 추가 (최대 3개)</p>
         </div>
 
+        <!-- submit이 의미 있는 동작(알람 추가)이므로 form 유지 + preventDefault 필수 -->
         <form id='alarmForm' class='clk-form' autocomplete='off'>
           <div class='clk-form__grid'>
-            <label class='clk-field'>
-              <span class='clk-field__label'>시 (0~23)</span>
+            <div class='clk-form__grid-item'>
+              <label for='hourInput' class='clk-field'>시 (0~23)</label>
               <input id='hourInput' class='clk-input' type='number' min='0' max='23' placeholder='HH' />
-            </label>
-            <label class='clk-field'>
-              <span class='clk-field__label'>분 (0~59)</span>
+            </div>
+
+            <div class='clk-form__grid-item'>
+              <label for='minuteInput' class='clk-field'>분 (0~59)</label>
               <input id='minuteInput' class='clk-input' type='number' min='0' max='59' placeholder='MM' />
-            </label>
-            <label class='clk-field'>
-              <span class='clk-field__label'>초 (0~59)</span>
+            </div>
+
+            <div class='clk-form__grid-item'>
+              <label for='secondInput' class='clk-field'>초 (0~59)</label>
               <input id='secondInput' class='clk-input' type='number' min='0' max='59' placeholder='SS' />
-            </label>
+            </div>
           </div>
 
           <div class='clk-actions'>
@@ -76,7 +79,7 @@
 
         <div class='clk-panel__section'>
           <h3 class='clk-panel__subtitle'>알람 현황</h3>
-          <ul id='alarmList' class='clk-list' aria-label='alarm list'></ul>
+          <ul id='alarmList' class='clk-list' role='list' aria-label='alarm list'></ul>
           <p class='clk-small'>FR3: 알람 최대 3개</p>
         </div>
       </aside>
@@ -98,7 +101,7 @@
         <button id='dismissBtn' class='clk-btn clk-btn--ghost' type='button'>끄기</button>
       </div>
 
-      <p class='clk-small'>※ 기능 구현: 이벤트 발생 시 모달 + Snooze</p>
+      <p class='clk-small'>※ 이벤트 기반 모달 + Snooze</p>
     </div>
   </div>
 
