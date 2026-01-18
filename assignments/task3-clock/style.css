@@ -221,6 +221,17 @@ body{
   gap: 10px;
 }
 
+.clk-form__grid-item{
+  display: grid;
+  gap: 6px;
+}
+
+.clk-field{
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .clk-field__label{
   display: block;
   font-size: 12px;
