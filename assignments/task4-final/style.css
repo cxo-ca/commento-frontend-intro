@@ -62,3 +62,22 @@ li {
   justify-content: space-between;
   padding: 6px 0;
 }
+
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 14px 0;
+}
+
+.sub-title {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.user-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
