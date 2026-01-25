@@ -22,6 +22,7 @@ const isDuplicatedId = (id) => {
   return State.users.some(u => u.id === nid);
 };
 
+const ALLOWED_SPECIALS = '!@#$%^&*';
 const validatePassword = (pw) => {
   const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
   return regex.test(pw);
@@ -78,8 +79,8 @@ passwordInput.addEventListener('input', () => {
   }
 
   pwMsg.textContent = validatePassword(pw)
-    ? '사용 가능한 비밀번호입니다.'
-    : '8자 이상, 영문/숫자/특수문자 포함';
+  ? '사용 가능한 비밀번호입니다.'
+  : `8자 이상, 영문/숫자/특수문자 포함 (허용: ${ALLOWED_SPECIALS})`;
 });
 
 // submit: 최종 검증 + 배열 저장
@@ -107,9 +108,9 @@ signupForm.addEventListener('submit', (e) => {
 
   // 비밀번호 규칙 (FR3)
   if (!validatePassword(pw)) {
-    pwMsg.textContent = '비밀번호 규칙을 만족해야 합니다.';
-    return;
-  }
+  pwMsg.textContent = `비밀번호 규칙을 만족해야 합니다. (허용 특수문자: ${ALLOWED_SPECIALS})`;
+  return;
+}
 
   // 배열 저장 (FR1)
   State.users.push({ id, pw });
