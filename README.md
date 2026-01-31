@@ -1,4 +1,4 @@
-# Commento Frontend Bootcamp – Assignments
+# Commento Frontend Bootcamp – Assignments 
 
 본 저장소는 Commento 프론트엔드 직무 부트캠프(OJT) 과제를 수행하며 작성한 결과물을 정리한 레포지토리입니다.  
 각 주차별 과제는 `assignments/` 하위 폴더에 정리되어 있으며, GitHub Pages로 배포한 결과물 링크를 함께 제공합니다.
