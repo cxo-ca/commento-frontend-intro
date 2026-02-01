@@ -5,6 +5,17 @@ const State = {
   todos: []
 };
 
+/* ===== 보안: 사용자 입력 escape ===== */
+function escapeHTML(str) {
+  return str.replace(/[&<>'"]/g, tag => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#39;',
+    '"': '&quot;'
+  }[tag]));
+}
+
 /* ===== 회원가입 ===== */
 const signupForm = document.getElementById('signupForm');
 const userIdInput = document.getElementById('userId');
@@ -15,7 +26,7 @@ const pwMsg = document.getElementById('pwMsg');
 const userList = document.getElementById('userList');
 const userCount = document.getElementById('userCount');
 
-const normalizeId = (id) => id.trim(); // 필요 시 .toLowerCase() 추가 가능
+const normalizeId = (id) => id.trim();
 
 const isDuplicatedId = (id) => {
   const nid = normalizeId(id);
@@ -23,6 +34,7 @@ const isDuplicatedId = (id) => {
 };
 
 const ALLOWED_SPECIALS = '!@#$%^&*';
+
 const validatePassword = (pw) => {
   const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
   return regex.test(pw);
@@ -31,7 +43,6 @@ const validatePassword = (pw) => {
 const renderUsers = () => {
   const fragment = document.createDocumentFragment();
   userList.innerHTML = '';
-
   userCount.textContent = `${State.users.length}명`;
 
   if (State.users.length === 0) {
@@ -44,18 +55,16 @@ const renderUsers = () => {
 
   State.users.forEach((u, idx) => {
     const li = document.createElement('li');
-
-    const left = document.createElement('span');
-    left.textContent = `${idx + 1}. ${u.id}`;
-
-    li.appendChild(left);
+    li.textContent = `${idx + 1}. ${u.id}`;
     fragment.appendChild(li);
   });
 
   userList.appendChild(fragment);
 };
 
-// input: 아이디 중복 체크
+/* ===== 아이디 중복 체크 debounce ===== */
+let debounceTimer;
+
 userIdInput.addEventListener('input', () => {
   const id = normalizeId(userIdInput.value);
 
@@ -64,12 +73,15 @@ userIdInput.addEventListener('input', () => {
     return;
   }
 
-  idMsg.textContent = isDuplicatedId(id)
-    ? '이미 사용 중인 아이디입니다.'
-    : '사용 가능한 아이디입니다.';
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => {
+    idMsg.textContent = isDuplicatedId(id)
+      ? '이미 사용 중인 아이디입니다.'
+      : '사용 가능한 아이디입니다.';
+  }, 300);
 });
 
-// input: 비밀번호 규칙 체크
+/* ===== 비밀번호 규칙 체크 ===== */
 passwordInput.addEventListener('input', () => {
   const pw = passwordInput.value;
 
@@ -79,18 +91,18 @@ passwordInput.addEventListener('input', () => {
   }
 
   pwMsg.textContent = validatePassword(pw)
-  ? '사용 가능한 비밀번호입니다.'
-  : `8자 이상, 영문/숫자/특수문자 포함 (허용: ${ALLOWED_SPECIALS})`;
+    ? '사용 가능한 비밀번호입니다.'
+    : `8자 이상, 영문/숫자/특수문자 포함 (허용: ${ALLOWED_SPECIALS})`;
 });
 
-// submit: 최종 검증 + 배열 저장
+/* ===== 회원가입 submit ===== */
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const id = normalizeId(userIdInput.value);
   const pw = passwordInput.value;
 
-  // 빈 값 방지
+  // HTML5 validation이 1차 방어지만, JS도 2차 방어
   if (id.length === 0) {
     idMsg.textContent = '아이디를 입력해주세요.';
     return;
@@ -100,25 +112,21 @@ signupForm.addEventListener('submit', (e) => {
     return;
   }
 
-  // 아이디 중복 체크 (FR2)
   if (isDuplicatedId(id)) {
     idMsg.textContent = '이미 사용 중인 아이디입니다.';
     return;
   }
 
-  // 비밀번호 규칙 (FR3)
   if (!validatePassword(pw)) {
-  pwMsg.textContent = `비밀번호 규칙을 만족해야 합니다. (허용 특수문자: ${ALLOWED_SPECIALS})`;
-  return;
-}
+    pwMsg.textContent = `비밀번호 규칙을 만족해야 합니다. (허용 특수문자: ${ALLOWED_SPECIALS})`;
+    return;
+  }
 
-  // 배열 저장 (FR1)
+  // FR1: 배열 저장
   State.users.push({ id, pw });
 
-  // UI 반영
   renderUsers();
 
-  // 폼 초기화
   signupForm.reset();
   idMsg.textContent = '';
   pwMsg.textContent = '';
@@ -147,7 +155,8 @@ const renderTodos = () => {
     const li = document.createElement('li');
 
     const text = document.createElement('span');
-    text.textContent = todo.text;
+    // XSS 방어 의도 명시 (escape 후 출력)
+    text.textContent = escapeHTML(todo.text);
 
     const btn = document.createElement('button');
     btn.type = 'button';
@@ -180,6 +189,6 @@ todoForm.addEventListener('submit', (e) => {
   renderTodos();
 });
 
-// 초기 렌더
+/* ===== 초기 렌더 ===== */
 renderUsers();
 renderTodos();
