@@ -16,34 +16,46 @@
     <!-- 회원가입 -->
     <section class='panel'>
       <h2>회원가입</h2>
-      <form id='signupForm'>
+      <form id='signupForm' autocomplete='off'>
         <div class='field'>
           <label for='userId'>아이디</label>
-          <input id='userId' type='text' />
+          <input
+            id='userId'
+            type='text'
+            required
+            minlength='4'
+            placeholder='4자 이상'
+          />
           <p id='idMsg' class='msg'></p>
         </div>
 
         <div class='field'>
           <label for='password'>비밀번호</label>
-          <input id='password' type='password' />
+          <input
+            id='password'
+            type='password'
+            required
+            pattern='(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}'
+            placeholder='8자 이상, 영문/숫자/특수문자 포함'
+          />
           <p id='pwMsg' class='msg'></p>
         </div>
 
         <button type='submit'>회원가입</button>
       </form>
+
       <div class='divider'></div>
 
-<h3 class='sub-title'>등록된 사용자</h3>
-<p id='userCount' class='msg'>0명</p>
-<ul id='userList' class='user-list' aria-label='registered users'></ul>
-
+      <h3 class='sub-title'>등록된 사용자</h3>
+      <p id='userCount' class='msg'>0명</p>
+      <ul id='userList' class='user-list' aria-label='registered users'></ul>
     </section>
 
     <!-- To Do -->
     <section class='panel'>
       <h2>To Do List</h2>
-      <form id='todoForm'>
-        <input id='todoInput' type='text' placeholder='할 일을 입력하세요' />
+      <form id='todoForm' autocomplete='off'>
+        <input id='todoInput' type='text' placeholder='할 일을 입력하세요' required />
         <button type='submit'>추가</button>
       </form>
       <ul id='todoList'></ul>
